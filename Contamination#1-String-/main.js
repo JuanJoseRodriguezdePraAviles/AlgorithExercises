@@ -11,7 +11,7 @@ There will never be a case when both are empty as nothing is going on!!
 Note: The character is a string of length 1 or an empty string.
 */
 
-function contamination() {
+function contamination(originalText, character) {
     if(originalText === null || originalText === undefined || originalText.length === 0 || character === null || character === undefined || character.length === 0 || character.length > 1) {
         originalText = '';
     } else {
@@ -21,7 +21,6 @@ function contamination() {
         for (let i = 0; i < letters.length; i++) {
             originalText += character;
         }
-        console.log(letters);
     }
     return originalText;
 }
