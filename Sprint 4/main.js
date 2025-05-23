@@ -43,11 +43,22 @@ the length of the repeat sequence
 */
 
 function repeatSequenceLen(a0) {
-    //coding and coding..
-    let repeated = false;
-    let units = [];
-    let unit = a0 % 10;
-    let ten = a0 % 100;
-    console.log(unit);
-    console.log(ten-unit);
+  const seen = new Map(); 
+  let current = a0;
+  let index = 0;
+
+  while (!seen.has(current)) {
+    seen.set(current, index);
+    current = F(current);
+    index++;
   }
+
+  return index - seen.get(current);
+
+  function F(n) {
+    return n.toString()
+            .split('')
+            .map(Number)
+            .reduce((sum, digit) => sum + digit * digit, 0);
+  }
+}
